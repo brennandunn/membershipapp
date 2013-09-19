@@ -9,9 +9,12 @@
 #
 GMAIL_USERNAME: Your_Username
 GMAIL_PASSWORD: Your_Password
-ADMIN_NAME: First User
-ADMIN_EMAIL: user@example.com
-ADMIN_PASSWORD: changeme
+ADMIN_NAME: Administrator
+ADMIN_EMAIL: admin@example.com
+ADMIN_PASSWORD: password
 ROLES: [admin, silver, gold, platinum]
-STRIPE_API_KEY: Your_Stripe_API_key
-STRIPE_PUBLIC_KEY: Your_Stripe_Public_Key
+STRIPE_API_KEY: sk_test_dnTIoJhvQBAyb8cO2SwyjaD8
+STRIPE_PUBLIC_KEY: pk_test_eVUxqhuBloBVEQeBBAOKM8cs
+
+# u: brennan+membership@planscope.io
+# p: membershipapp
