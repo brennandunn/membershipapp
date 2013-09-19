@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @course_module.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @course_module.description %>
+</p>
+
+<p>
+  <b>Unlocks in:</b>
+  <%= @course_module.unlocks_in_stamp %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_module_path(@course_module) %> |
+<%= link_to 'Back', course_modules_path %>

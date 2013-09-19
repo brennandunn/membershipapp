@@ -11,6 +11,16 @@ class User < ActiveRecord::Base
   attr_accessor :stripe_token, :coupon
   before_save :update_stripe
   before_destroy :cancel_subscription
+  before_create :set_joined_at
+
+
+  def can_view?(course_module)
+    Time.now - course_module.unlocks_in > joined_at
+  end
+
+  def can_view_at(course_module)
+    joined_at + course_module.unlocks_in
+  end
 
   def update_plan(role)
     self.role_ids = []
@@ -86,6 +96,12 @@ class User < ActiveRecord::Base
   def expire
     UserMailer.expire_email(self).deliver
     destroy
+  end
+
+  private
+
+  def set_joined_at
+    self.joined_at = Time.now
   end
   
 end

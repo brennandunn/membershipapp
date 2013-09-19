@@ -5,6 +5,7 @@ Membershipapp::Application.routes.draw do
   get "content/platinum"
   authenticated :user do
     root :to => 'home#index'
+    get 'dashboard' => 'users#dashboard', as: :dashboard
   end
   root :to => "home#index"
   devise_for :users, :controllers => { :registrations => 'registrations' }
@@ -13,4 +14,5 @@ Membershipapp::Application.routes.draw do
     put 'update_card', :to => 'registrations#update_card'
   end
   resources :users
+  resources :course_modules
 end

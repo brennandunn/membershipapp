@@ -18,3 +18,10 @@ puts 'user: ' << user.name
 user.add_role :admin
 user2 = User.find_or_create_by_email :name => 'Member', :email => 'member@example.com', :password => 'password', :password_confirmation => 'password'
 user2.add_role :member
+
+
+CourseModule.create name: 'Right Away', description: 'asdfasdf', unlocks_in_number: 0, unlocks_in_unit: 'days'
+
+CourseModule.create name: '1 week', description: 'asdfasdfasdfadsfdsf', unlocks_in_number: 1, unlocks_in_unit: 'weeks'
+
+CourseModule.create name: '1 month', description: 'asdfadsa asdfasdfasdfsdf', unlocks_in_number: 1, unlocks_in_unit: 'months'

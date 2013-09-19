@@ -1,0 +1,19 @@
+<h1>Welcome</h1>
+
+<br><br>
+
+<% CourseModule.all.each do |course_module| %>
+
+	<div class="course-module <%= 'disabled' unless can? :read, course_module %>">
+		<h2><%= course_module.name %></h2>
+		<p><%= course_module.description %></p>
+
+		<% unless can? :read, course_module %>
+		<div>
+			<strong>Available in <%= time_ago_in_words current_user.can_view_at(course_module) %></strong>
+		</div>
+		<% end %>
+
+	</div>
+
+<% end %>

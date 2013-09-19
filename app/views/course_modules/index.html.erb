@@ -1,0 +1,27 @@
+<%= link_to 'New Module', new_course_module_path, class: 'btn btn-mini' %>
+
+<h3>Modules</h3>
+<div class="span8">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Unlocks in</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @course_modules.each do |course_module| %>
+      <tr>
+        <td><%= course_module.name %></td>
+        <td><%= course_module.unlocks_in_stamp %></td>
+        <td><%= link_to 'Show', course_module %></td>
+        <td><%= link_to 'Edit', edit_course_module_path(course_module) %></td>
+        <td><%= link_to 'Destroy', course_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
