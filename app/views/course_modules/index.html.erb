@@ -7,6 +7,8 @@
     <div class="course-module <%= 'disabled' unless can? :read, course_module %>">
       <h3><%= course_module.name %></h3>
       <p><%= course_module.description %></p>
+      <%= link_to 'Edit', edit_course_module_path(course_module) %>
+      <%= link_to 'Destroy', course_module, method: :delete, data: { confirm: 'Are you sure?' } %>
 
       <% unless can? :read, course_module %>
       <div>
