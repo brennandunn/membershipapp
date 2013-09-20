@@ -117,13 +117,14 @@ div {
 				
 				&:before {
 					content: "\F0AD";
-					font-size: 24px;
+					font-size: 28px;
 					position: absolute;
 					font-family: FontAwesome;
 					top: 30px;
-					left: 59px;
+					left: 54px;
 					color: #a9afca;
 					text-shadow: 0px 0px 2px rgba(0,0,0,.3);
+					font-weight: 100;
 				}
 				
 				&:hover {
