@@ -7,7 +7,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 2.3.2.2'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                          :github => 'anjlab/bootstrap-rails',
+                          :branch => '3.0.0'
+
+gem 'font-awesome-rails'                          
 gem 'cancan'
 gem 'devise'
 gem 'figaro'

@@ -1,20 +1,17 @@
-<%= link_to "Membership Site", root_path, :class => 'brand' %>
 <ul class="nav">
   <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Home', dashboard_path %>
+    <li class="course">
+    	<%= link_to 'Course', dashboard_path %>
     </li>
-    <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
+    <li class="discussion">
+    	<a href="">Discussion</a>
     </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>  
+    <li class="resources">
+    	<a href="">Resources</a>
     </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to 'Edit account', edit_user_registration_path %>
+    <li class="edit_account">
+    	<%= link_to 'Edit account', edit_user_registration_path, :class => "edit_account_link" %>
+    	<%= link_to 'Logout', destroy_user_session_path, :method=>'delete', :class => "logout" %> 
     </li>
     <% if current_user.has_role? :admin %>
       <li>
@@ -25,7 +22,9 @@
       </li>
     <% end %>
 
-    <li>Joined: <%= current_user.joined_at %></li>
-
+  <% else %>
+    <li>
+    <%= link_to 'Login', new_user_session_path %>  
+    </li>
   <% end %>
 </ul>
