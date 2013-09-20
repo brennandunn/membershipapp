@@ -1,8 +1,9 @@
 Membershipapp::Application.routes.draw do
+  use_doorkeeper
+
   mount StripeEvent::Engine => '/stripe'
-  get "content/gold"
-  get "content/silver"
-  get "content/platinum"
+  get '/api/v1/me.json' => 'users#auth'
+
   authenticated :user do
     root :to => 'home#index'
     get 'dashboard' => 'users#dashboard', as: :dashboard

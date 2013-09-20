@@ -1,0 +1,2 @@
+app: rails s
+discourse: sh -c 'cd ~/projects/membershipapp_discourse/ && rails s -p 3001'
