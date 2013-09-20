@@ -19,6 +19,7 @@ gem 'rolify'
 gem 'simple_form'
 gem 'stripe'
 gem 'stripe_event'
+gem 'doorkeeper', '~> 0.7.2'
 group :development do
   gem 'sqlite3'
   gem 'better_errors'

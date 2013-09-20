@@ -1,9 +1,23 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  doorkeeper_for :auth
+  before_filter :authenticate_user!, except: :auth
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
+  end
+
+  def auth
+    user = User.find(doorkeeper_token.resource_owner_id)
+    render json: {
+      id: user.id,
+      user: {
+        admin: user.has_role?(:admin),
+        has_active_subscription: true,  # lock out user if they cancel / fail charge
+        name: user.name,
+        email: user.email
+      }
+    }
   end
 
   def dashboard
