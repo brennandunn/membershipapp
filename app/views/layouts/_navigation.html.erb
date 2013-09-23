@@ -1,13 +1,13 @@
 <ul class="nav">
   <% if user_signed_in? %>
     <li class="course">
-    	<%= link_to 'Course', dashboard_path %>
+    	<%= link_to 'Course', course_modules_path %>
     </li>
     <li class="discussion">
     	<a href="">Discussion</a>
     </li>
     <li class="resources">
-    	<a href="">Resources</a>
+    	<%= link_to 'Resources', resource_path %>
     </li>
     <li class="edit_account">
     	<%= link_to 'Edit account', edit_user_registration_path, :class => "edit_account_link" %>
@@ -16,9 +16,6 @@
     <% if current_user.has_role? :admin %>
       <li>
       <%= link_to 'Admin', users_path %>
-      </li>
-      <li>
-      <%= link_to 'Modules', course_modules_path %>
       </li>
     <% end %>
 

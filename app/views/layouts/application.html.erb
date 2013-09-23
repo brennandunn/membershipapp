@@ -12,7 +12,7 @@
   <body class="<%= controller_name %> <%= action_name %>">
     <div class="header">
     	<div class="header_container">
-          <h1><%= link_to "Membership Site", root_path, :class => 'brand' %></h1>
+          <h1><%= link_to SiteConfig.site_name, root_path, :class => 'brand' %></h1>
           <%= render 'layouts/navigation' %>
         </div>
     </div>

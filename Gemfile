@@ -11,7 +11,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                           :github => 'anjlab/bootstrap-rails',
                           :branch => '3.0.0'
 
-gem 'font-awesome-rails'                          
+gem 'font-awesome-rails'                
 gem 'cancan'
 gem 'devise'
 gem 'figaro'
@@ -20,6 +20,7 @@ gem 'simple_form'
 gem 'stripe'
 gem 'stripe_event'
 gem 'doorkeeper', '~> 0.7.2'
+gem 'redcarpet'
 group :development do
   gem 'sqlite3'
   gem 'better_errors'

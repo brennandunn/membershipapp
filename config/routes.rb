@@ -6,8 +6,8 @@ Membershipapp::Application.routes.draw do
 
   authenticated :user do
     root :to => 'home#index'
-    get 'dashboard' => 'users#dashboard', as: :dashboard
   end
+
   root :to => "home#index"
   devise_for :users, :controllers => { :registrations => 'registrations' }
   devise_scope :user do
@@ -16,4 +16,5 @@ Membershipapp::Application.routes.draw do
   end
   resources :users
   resources :course_modules
+  resource :resource
 end
