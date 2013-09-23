@@ -21,13 +21,6 @@ pre {
 
 a {
   color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 div {
@@ -142,7 +135,7 @@ div {
 			}
 			
 			&.discussion a:before {
-				content: "\F0C0";
+				content: "\F086";
 			}
 			
 			&.resources a:before {
@@ -192,6 +185,125 @@ div {
 						&:hover, &:hover:after {
 							color: #fff;
 						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.container {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.content {
+	width: 700px;
+	padding: 50px;
+	float: left;
+	background: #fff;
+	
+	// replace with SCSS once it's working
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-border-radius: 4px;
+	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,.3);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.3);
+	position: relative;
+	z-index: 20;
+}
+
+.sidebar_tabs {
+
+	width: 300px;
+	float: left;
+	position: relative;
+	z-index: 10;
+	
+	h4 {
+		text-transform: uppercase;
+		margin: 20px;
+	}
+	
+	.tabs {
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+	
+		li {
+			padding-left: 20px;
+			position: relative;
+			
+			.tab {
+				display: block;
+				padding: 15px 15px 15px 40px;
+				border-bottom: solid #dfdad4 1px;
+				
+				.module_name {
+					display: block;
+					font-size: 18px;
+					color: #404040;
+				}
+				
+				.status {
+					display: block;
+				}
+				
+				&:hover {
+					background: none;
+					text-decoration: none;
+				}
+				
+				
+				&:before {
+					content: "\F15C";
+					font-size: 28px;
+					position: absolute;
+					font-family: FontAwesome;
+					top: 25px;
+					left: 20px;
+					color: #757472;
+					font-weight: 100;
+				}
+			}
+			
+			&.locked {
+				
+				.tab {
+				
+					.module_name {
+						color: #8d8d8d;
+					}
+					
+					.status {
+						color: #8d8d8d;
+					}
+					
+					&:before {
+						content: "\F023";
+						color: #8d8d8d;
+					}
+				}
+				
+			}
+			
+			&.active {
+				padding-left: 0px;
+				margin-top: -1px;
+				.tab {
+					background: #f1ede8;
+					border: solid #dfdad4 1px;
+					border-left: none; 
+					padding-left: 60px;
+					
+					.module_name {
+						color: #566bbc;
+					}
+					
+					&:before {
+						color:#566bbc;
+						top: 26px;
 					}
 				}
 			}

@@ -1,20 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @course_module.name %>
-</p>
+<div class="content course">
+	<h2><%= @course_module.name %></h2>
+	<div class="course_content">
+		<%= @course_module.description %>
+	</div>
+</div>
 
-<p>
-  <b>Description:</b>
-  <%= @course_module.description %>
-</p>
-
-<p>
-  <b>Unlocks in:</b>
-  <%= @course_module.unlocks_in_stamp %>
-</p>
-
-
-<%= link_to 'Edit', edit_course_module_path(@course_module) %> |
-<%= link_to 'Back', course_modules_path %>
+<div class="sidebar_tabs">
+	<h4>Table of Contents</h4>
+	
+	<ul class="tabs course_list">
+		<% CourseModule.all.each do |course_module| %>
+		<li class="<% if @course_module.id == course_module.id %>active<% end %> <%= 'locked' unless can? :read, course_module %>">
+		
+			<% unless can? :read, course_module %>
+				<span class="tab">
+					<span class="module_name"><%= course_module.name %></span>
+					<span class="status"><%= course_module.unlocks_in_stamp %></span>
+				</span>
+			<% else %>
+				<a href="<%= course_module_path(course_module) %>" class="tab">
+					<span class="module_name"><%= course_module.name %></span>
+					<span class="status">Available</span>
+				</a>
+			<% end %>
+		</li>
+		<% end %>
+	</ul>
+	
+	
+</div>
