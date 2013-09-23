@@ -198,3 +198,89 @@ div {
 		}
 	}
 }
+
+.container {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.content {
+	width: 700px;
+	padding: 50px;
+	float: left;
+	background: #fff;
+	
+	// replace with SCSS once it's working
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-border-radius: 4px;
+	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,.3);
+	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,.3);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.3);
+	position: relative;
+	z-index: 20;
+}
+
+.sidebar_tabs {
+
+	width: 300px;
+	float: left;
+	position: relative;
+	z-index: 10;
+	
+	.tabs {
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+	
+		li {
+			padding-left: 20px;
+			
+			.tab {
+				display: block;
+				padding: 15px 15px 15px 40px;
+				
+				
+				.module_name {
+					display: block;
+					font-size: 18px;
+					color: #404040;
+				}
+				
+				.status {
+					display: block;
+				}
+				
+				&:hover {
+					background: none;
+					text-decoration: none;
+				}
+			}
+			
+			&.locked {
+				.module_name {
+					color: #8d8d8d;
+				}
+				
+				.status {
+					color: #8d8d8d;
+				}
+			}
+			
+			&.active {
+				padding-left: 0px;
+				
+				.tab {
+					background: #f1ede8;
+					border: solid #dfdad4 1px;
+					border-left: none; 
+					padding-left: 60px;
+					
+					.module_name {
+						color: #566bbc;
+					}
+				}
+			}
+		}
+	}
+}
