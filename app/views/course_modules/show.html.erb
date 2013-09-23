@@ -17,12 +17,12 @@
 			<% unless can? :read, course_module %>
 				<span class="tab">
 					<span class="module_name"><%= course_module.name %></span>
-					<span class="status">Available</span>
+					<span class="status"><%= course_module.unlocks_in_stamp %></span>
 				</span>
 			<% else %>
 				<a href="<%= course_module_path(course_module) %>" class="tab">
 					<span class="module_name"><%= course_module.name %></span>
-					<span class="status"><%= course_module.unlocks_in_stamp %></span>
+					<span class="status">Available</span>
 				</a>
 			<% end %>
 		</li>

@@ -21,13 +21,6 @@ pre {
 
 a {
   color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 div {
@@ -142,7 +135,7 @@ div {
 			}
 			
 			&.discussion a:before {
-				content: "\F0C0";
+				content: "\F086";
 			}
 			
 			&.resources a:before {
@@ -228,6 +221,11 @@ div {
 	position: relative;
 	z-index: 10;
 	
+	h4 {
+		text-transform: uppercase;
+		margin: 20px;
+	}
+	
 	.tabs {
 		list-style: none;
 		margin: 0px;
@@ -235,11 +233,12 @@ div {
 	
 		li {
 			padding-left: 20px;
+			position: relative;
 			
 			.tab {
 				display: block;
 				padding: 15px 15px 15px 40px;
-				
+				border-bottom: solid #dfdad4 1px;
 				
 				.module_name {
 					display: block;
@@ -255,21 +254,43 @@ div {
 					background: none;
 					text-decoration: none;
 				}
+				
+				
+				&:before {
+					content: "\F15C";
+					font-size: 28px;
+					position: absolute;
+					font-family: FontAwesome;
+					top: 25px;
+					left: 20px;
+					color: #757472;
+					font-weight: 100;
+				}
 			}
 			
 			&.locked {
-				.module_name {
-					color: #8d8d8d;
+				
+				.tab {
+				
+					.module_name {
+						color: #8d8d8d;
+					}
+					
+					.status {
+						color: #8d8d8d;
+					}
+					
+					&:before {
+						content: "\F023";
+						color: #8d8d8d;
+					}
 				}
 				
-				.status {
-					color: #8d8d8d;
-				}
 			}
 			
 			&.active {
 				padding-left: 0px;
-				
+				margin-top: -1px;
 				.tab {
 					background: #f1ede8;
 					border: solid #dfdad4 1px;
@@ -278,6 +299,11 @@ div {
 					
 					.module_name {
 						color: #566bbc;
+					}
+					
+					&:before {
+						color:#566bbc;
+						top: 26px;
 					}
 				}
 			}
