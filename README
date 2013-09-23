@@ -1,19 +1,23 @@
-Membershipapp
-========================
+SETTING UP:
 
-This application was generated with the rails_apps_composer gem:
-https://github.com/RailsApps/rails_apps_composer
-provided by the RailsApps Project:
-http://railsapps.github.io/
+1. Setup Discourse
 
-________________________
+	Copy config/database.yml.development-sample to config/database.yml. Copy config/redis.yml.sample to config/redis.yml. Edit the files to point to your postgres and redis instances.
 
-Recipes:
-["apps4", "controllers", "core", "email", "extras", "frontend", "gems", "git", "init", "models", "prelaunch", "railsapps", "readme", "routes", "saas", "setup", "testing", "views"]
+	`bundle install`
 
-Preferences:
-{:git=>true, :railsapps=>"rails-stripe-membership-saas", :database=>"sqlite", :unit_test=>"rspec", :integration=>"cucumber", :fixtures=>"factory_girl", :frontend=>"bootstrap", :bootstrap=>"sass", :email=>"gmail", :authentication=>"devise", :devise_modules=>"default", :authorization=>"cancan", :starter_app=>"admin_app", :form_builder=>"simple_form", :quiet_assets=>true, :local_env_file=>true, :better_errors=>true, :dev_webserver=>"webrick", :prod_webserver=>"thin", :templates=>"erb", :continuous_testing=>"guard", :rvmrc=>true, :ban_spiders=>true, :github=>true}
+	`bundle exec rake db:create db:migrate db:test:prepare db:seed_fu`
 
-________________________
+RUNNING THE APP:
 
-License
+1. Start membership app
+
+	`rails s`
+
+	(available at localhost:3000)
+
+2. Start discourse
+
+	`rails s -p 3001`
+
+	(available at localhost:3001)
