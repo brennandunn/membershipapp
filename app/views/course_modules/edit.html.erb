@@ -1,6 +1,16 @@
-<h1>Editing course_module</h1>
+<h1>Editing Module</h1>
 
 <%= render 'form' %>
+
+<h3>Available Lessons</h3>
+
+<ul>
+	<% @course_module.lessons.each do |lesson| %>
+		<li><%= link_to lesson.name, edit_course_module_lesson_path(@course_module, lesson) %></li>
+	<% end %>
+	<li><%= link_to 'ADD NEW LESSON', new_course_module_lesson_path(@course_module) %></li>
+</ul>
+
 
 <%= link_to 'Show', @course_module %> |
 <%= link_to 'Back', course_modules_path %>

@@ -15,6 +15,8 @@ Membershipapp::Application.routes.draw do
     put 'update_card', :to => 'registrations#update_card'
   end
   resources :users
-  resources :course_modules
+  resources :course_modules do
+    resources :lessons
+  end
   resource :resource
 end

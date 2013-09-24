@@ -1,13 +1,7 @@
 class CourseModulesController < ApplicationController
-  # GET /course_modules
-  # GET /course_modules.json
-  def index
-    @course_modules = CourseModule.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @course_modules }
-    end
+  def index
+    redirect_to course_module_path(CourseModule.first)
   end
 
   # GET /course_modules/1

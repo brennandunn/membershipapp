@@ -1,5 +1,9 @@
 class SiteConfig < ActiveRecord::Base
 
+	def self.markdown
+		Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+	end
+
   def self.site_name
     load_var :name
   end
@@ -10,7 +14,6 @@ class SiteConfig < ActiveRecord::Base
 
   def self.resources
   	raw = load_var :resources
-  	markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
   	markdown.render(raw).html_safe
   end
 

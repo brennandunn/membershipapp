@@ -1,9 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <div class="content course">
+
+	<% if can? :manage, @course_module %>
+		<div class="admin">
+			<%= link_to 'Edit', edit_course_module_path(@course_module) %>
+			|
+      <%= link_to 'Delete', @course_module, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</div>
+	<% end %>
+
 	<h2><%= @course_module.name %></h2>
 	<div class="course_content">
-		<%= @course_module.description %>
+		<%= @course_module.description_html %>
+
+		<br>
+
+		<h4>LESSONS</h4>
+		<ul>
+			<% @course_module.lessons.each do |lesson| %>
+				<li><%= link_to lesson.name, "##{lesson.id}" %></li>
+			<% end %>
+		</ul>
+
+		<br>
+
+		<% @course_module.lessons.each do |lesson| %>
+			<div class="lesson">
+				<h5><%= lesson.name %></h5>
+				<%= lesson.content_html %>
+			</div>
+		<% end %>
+
 	</div>
 </div>
 
@@ -17,7 +45,7 @@
 			<% unless can? :read, course_module %>
 				<span class="tab">
 					<span class="module_name"><%= course_module.name %></span>
-					<span class="status"><%= course_module.unlocks_in_stamp %></span>
+					<span class="status"><%= time_ago_in_words current_user.can_view_at(course_module) %></span>
 				</span>
 			<% else %>
 				<a href="<%= course_module_path(course_module) %>" class="tab">
