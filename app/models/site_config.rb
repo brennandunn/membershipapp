@@ -1,4 +1,5 @@
 class SiteConfig < ActiveRecord::Base
+  attr_accessible :name, :css, :resources
 
 	def self.markdown
 		Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)

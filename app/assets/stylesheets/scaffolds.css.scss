@@ -23,6 +23,11 @@ a {
   color: #000;
 }
 
+input.password, input.email, input.string {
+	padding: 5px;
+	height: auto;	
+}
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;
@@ -66,6 +71,7 @@ div {
 .header {
 	background: #2b2f3e;
 	height: 100px;
+	margin-bottom: 30px;
 	
 	.header_container {
 		width: 1100px;
@@ -195,11 +201,12 @@ div {
 .container {
 	width: 1100px;
 	margin: 0 auto;
+	padding: 0px;
 }
 
 .content {
 	width: 700px;
-	padding: 50px;
+	padding: 20px 50px 50px;
 	float: left;
 	background: #fff;
 	
@@ -214,12 +221,18 @@ div {
 	z-index: 20;
 }
 
-.sidebar_tabs {
-
-	width: 300px;
+.sidebar {
+	width: 270px;
 	float: left;
 	position: relative;
 	z-index: 10;
+	padding-left: 30px;
+}
+
+.sidebar.tabs {
+	width: 300px;
+	padding: 0px;
+	
 	
 	h4 {
 		text-transform: uppercase;
