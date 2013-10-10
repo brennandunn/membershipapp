@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923232937) do
+ActiveRecord::Schema.define(:version => 20131010213928) do
 
   create_table "course_modules", :force => true do |t|
     t.string   "name"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20130923232937) do
     t.string   "customer_id"
     t.string   "last_4_digits"
     t.datetime "joined_at"
+    t.string   "cohort"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

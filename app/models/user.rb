@@ -92,6 +92,10 @@ class User < ActiveRecord::Base
     errors.add :base, "Unable to cancel your subscription. #{e.message}."
     false
   end
+
+  def subscribed?
+    true #stub
+  end
   
   def expire
     UserMailer.expire_email(self).deliver

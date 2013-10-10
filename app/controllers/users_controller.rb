@@ -12,10 +12,12 @@ class UsersController < ApplicationController
     render json: {
       id: user.id,
       user: {
+        id: user.id,
         admin: user.has_role?(:admin),
-        has_active_subscription: true,  # lock out user if they cancel / fail charge
+        has_active_subscription: user.subscribed?,  # lock out user if they cancel / fail charge
+        cohort: user.cohort,
         name: user.name,
-        email: user.email
+        email: user.email,
       }
     }
   end

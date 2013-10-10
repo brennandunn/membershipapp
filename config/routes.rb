@@ -5,7 +5,7 @@ Membershipapp::Application.routes.draw do
   get '/api/v1/me.json' => 'users#auth'
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'course_modules#index'
   end
 
   root :to => "home#index"
