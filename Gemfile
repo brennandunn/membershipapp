@@ -21,6 +21,8 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'doorkeeper', '~> 0.7.2'
 gem 'redcarpet'
+gem 'activeadmin'
+
 group :development do
   gem 'sqlite3'
   gem 'better_errors'

@@ -1,4 +1,5 @@
 Membershipapp::Application.routes.draw do
+  ActiveAdmin.routes(self)
   use_doorkeeper
 
   mount StripeEvent::Engine => '/stripe'
@@ -8,7 +9,6 @@ Membershipapp::Application.routes.draw do
     root :to => 'course_modules#index'
   end
 
-  root :to => "home#index"
   devise_for :users, :controllers => { :registrations => 'registrations' }
   devise_scope :user do
     put 'update_plan', :to => 'registrations#update_plan'
@@ -19,4 +19,6 @@ Membershipapp::Application.routes.draw do
     resources :lessons
   end
   resource :resource
+
+  root :to => "home#index"
 end
