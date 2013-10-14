@@ -1,12 +1,15 @@
 Membershipapp::Application.routes.draw do
-  ActiveAdmin.routes(self)
   use_doorkeeper
 
   mount StripeEvent::Engine => '/stripe'
   get '/api/v1/me.json' => 'users#auth'
 
   authenticated :user do
-    root :to => 'course_modules#index'
+    if ENV['FG']
+      root to: redirect(ENV['DISCOURSE'])
+    else
+      root :to => 'course_modules#index'
+    end
   end
 
   devise_for :users, :controllers => { :registrations => 'registrations' }
@@ -20,5 +23,10 @@ Membershipapp::Application.routes.draw do
   end
   resource :resource
 
-  root :to => "home#index"
+  get 'invitation/:cohort', to: 'users#new'
+
+  root :to => redirect('/users/sign_in')
+
+  ActiveAdmin.routes(self)
+
 end

@@ -4,7 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : SiteConfig.site_name %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Membershipapp" %>">
+    <% if ENV['FG'] %>
+    <link href='http://fonts.googleapis.com/css?family=Average|EB+Garamond' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "fg", media: 'all' %>
+    <% else %>
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <% end %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
@@ -12,7 +17,14 @@
   <body class="<%= controller_name %> <%= action_name %>">
     <div class="header">
     	<div class="header_container">
-          <h1><%= link_to SiteConfig.site_name, root_path, :class => 'brand' %></h1>
+          <% if ENV['FG'] %>
+            <div class="the">The</div>
+            <div class="freelancers">Freelancers</div>
+            <div class="guild">Guild</div>
+            <div class="est">est 2013</div>
+          <% else %>
+            <h1><%= link_to SiteConfig.site_name, root_path, :class => 'brand' %></h1>
+          <% end %>
           <%= render 'layouts/navigation' %>
         </div>
     </div>

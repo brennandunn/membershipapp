@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_user
-      course_modules_path
+      ENV['FG'] ? ENV['DISCOURSE'] : course_modules_path
     else
       root_path
     end

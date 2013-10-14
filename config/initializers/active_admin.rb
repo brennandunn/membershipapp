@@ -92,7 +92,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'home#index'
+  config.root_to = 'devise/sessions#new'
 
   # == Admin Comments
   #

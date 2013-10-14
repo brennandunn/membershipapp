@@ -1,12 +1,25 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def new
-    @plan = params[:plan]
-    if @plan && ENV["ROLES"].include?(@plan) && @plan != "admin"
-      super
+  def create
+
+    build_resource(sign_up_params)
+    @user = resource
+
+    if resource.save
+      if resource.active_for_authentication?
+        set_flash_message :notice, :signed_up if is_navigational_format?
+        sign_up(resource_name, resource)
+        respond_with resource, :location => after_sign_up_path_for(resource)
+      else
+        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+        expire_session_data_after_sign_in!
+        respond_with resource, :location => after_inactive_sign_up_path_for(resource)
+      end
     else
-      redirect_to root_path, :notice => 'Please select a subscription plan below.'
+      clean_up_passwords resource
+      render template: 'users/new'
     end
+
   end
 
   def update_plan
@@ -34,8 +47,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
   def build_resource(*args)
     super
-    if params[:plan]
-      resource.add_role(params[:plan])
-    end
+    resource.add_role('member')
+    resource.cohort = params[:cohort]
   end
 end

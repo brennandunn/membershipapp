@@ -1,14 +1,18 @@
 <ul class="nav">
   <% if user_signed_in? %>
+    <% unless ENV['FG'] %>
     <li class="course">
     	<%= link_to 'Course', course_modules_path %>
     </li>
+    <% end %>
     <li class="discussion">
-    	<%= link_to 'Discussion', ENV['DISCOURSE'] %>
+    	<%= link_to 'Forum', ENV['DISCOURSE'] %>
     </li>
+    <% unless ENV['FG'] %>
     <li class="resources">
     	<%= link_to 'Resources', resource_path %>
     </li>
+    <% end %>
     <li class="edit_account">
     	<%= link_to 'Edit account', edit_user_registration_path, :class => "edit_account_link" %>
     	<%= link_to 'Logout', destroy_user_session_path, :method=>'delete', :class => "logout" %> 
@@ -19,9 +23,5 @@
       </li>
     <% end %>
 
-  <% else %>
-    <li>
-    <%= link_to 'Login', new_user_session_path %>  
-    </li>
   <% end %>
 </ul>

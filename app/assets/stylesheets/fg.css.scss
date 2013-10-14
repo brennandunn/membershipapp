@@ -1,0 +1,51 @@
+//= require twitter/bootstrap
+//= require font-awesome
+
+body {
+	padding: 40px;
+}
+
+.header, p {
+	font-family: 'Average', serif;
+}
+
+.header > div {
+  text-transform: uppercase;
+	text-align: center; }
+.header .the {
+  color: #444;
+  font-style: italic; }
+.header .freelancers {
+  font-size: 170%; }
+.header .guild {
+  font-size: 150%;
+  margin-top: -3px; }
+.header .est {
+  font-size: 70%;
+  color: #555;
+  letter-spacing: 2px;
+  margin-top: 10px; }
+
+.nav {
+	list-style: none;
+	padding: 0;
+}
+
+.container {
+	margin: 30px auto;
+	width: 400px;
+}
+
+.control-group {
+	margin-bottom: 9px;
+}
+
+input[type=email], input[type=password] {
+	width: 100%;
+}
+
+p {
+	font-size: 19px;
+	line-height: 35px;
+	text-align: center;
+}

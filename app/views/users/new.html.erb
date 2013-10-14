@@ -1,0 +1,58 @@
+<% content_for :head do %>
+  <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
+<% end %>
+
+<p>
+	Welcome to the Guild!
+</p>
+
+<p>
+	Please create your account below. After you sign up, you'll be directed into the Guild where you'll want to introduce yourself and dive into the discussions. I'll be emailing you with new lessons and live events — so it's important you don't unsubscribe from my emails!
+</p>
+
+<div id="stripe_error" class="alert alert-danger" style="display:none" >
+</div>
+<%= simple_form_for(@user, :html => {:class => 'card_form form-vertical' }) do |f| %>
+  <%= hidden_field_tag 'cohort', params[:cohort] %>
+
+	<div class="form-group">
+		<%= f.label :name, 'Your full name' %>
+		<%= f.text_field :name, class: 'form-control', required: true %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :email, 'Your email address' %>
+		<%= f.email_field :email, class: 'form-control', required: true %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password %>
+		<%= f.password_field :password, class: 'form-control', required: true %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, class: 'form-control', required: true %>
+	</div>
+
+	<div class="alert alert-success">
+		<strong>You have already paid for your first month of access.</strong> In a month (and from then on), we'll charge the following card...
+	</div>
+
+  <div class="form-group">
+    <%= label_tag :card_number, "Credit Card Number" %>
+    <%= text_field_tag :card_number, nil, class: 'form-control', name: nil %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :card_code, "Card Security Code (CVV)" %>
+    <%= text_field_tag :card_code, nil, class: 'form-control', name: nil, style: 'width:30%' %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
+  </div>
+
+  <%= f.hidden_field :stripe_token %>
+  <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+<% end %>
