@@ -7,6 +7,7 @@ group :assets do
 end
 gem 'sass-rails',   '~> 3.2.3'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                           :github => 'anjlab/bootstrap-rails',
                           :branch => '3.0.0'
