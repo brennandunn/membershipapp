@@ -1,5 +1,5 @@
 $('.card_form').ready(function() {
-  $.externalScript('https://js.stripe.com/v1/').done(function(script, textStatus) {
+  $.getScript('https://js.stripe.com/v1/', function(script, textStatus) {
       Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
       var subscription = {
         setupForm: function() {

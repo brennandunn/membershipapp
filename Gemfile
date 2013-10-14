@@ -6,7 +6,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'sass-rails',   '~> 3.2.3'
-gem 'jquery-rails', '< 3.0.0'
+gem 'jquery-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                           :github => 'anjlab/bootstrap-rails',
                           :branch => '3.0.0'
@@ -21,7 +21,8 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'doorkeeper', '~> 0.7.2'
 gem 'redcarpet'
-gem 'activeadmin'
+gem 'activeadmin', github: "gregbell/active_admin"
+gem 'infusionsoft'
 
 group :development do
   gem 'sqlite3'

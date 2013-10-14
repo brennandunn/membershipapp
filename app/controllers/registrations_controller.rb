@@ -9,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
+        attach_to_infusionsoft
         respond_with resource, :location => after_sign_up_path_for(resource)
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
@@ -50,4 +51,20 @@ class RegistrationsController < Devise::RegistrationsController
     resource.add_role('member')
     resource.cohort = params[:cohort]
   end
+
+  def attach_to_infusionsoft
+    return unless ENV['FG']
+    first_name, last_name = resource.name.split(' ')
+    data = {
+      :Email => resource.email,
+      :FirstName => first_name,
+      :LastName => last_name
+    }
+    icontact_id = Infusionsoft.contact_add_with_dup_check data, 'Email'
+    Infusionsoft.email_optin @user.email, "Freelancers Guild"
+    Infusionsoft.contact_add_to_group icontact_id, ClassMappings::DEFAULT_IS_MAPPING
+    Infusionsoft.contact_add_to_group icontact_id, ClassMappings.for_cohort(resource.cohort)
+    resource.update_attribute :infusionsoft_id, icontact_id
+  end
+
 end
