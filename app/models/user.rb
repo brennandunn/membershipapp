@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   before_destroy :cancel_subscription
   before_create :set_joined_at
 
-
   def can_view?(course_module)
     Time.now - course_module.unlocks_in > joined_at
   end

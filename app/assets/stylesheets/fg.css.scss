@@ -48,4 +48,8 @@ p {
 	font-size: 19px;
 	line-height: 35px;
 	text-align: center;
+
+	&.help-block {
+		font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
 }

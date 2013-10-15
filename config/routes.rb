@@ -12,7 +12,7 @@ Membershipapp::Application.routes.draw do
     end
   end
 
-  devise_for :users, :controllers => { :registrations => 'registrations' }
+  devise_for :users, :controllers => { :registrations => 'registrations', :passwords => 'passwords' }
   devise_scope :user do
     put 'update_plan', :to => 'registrations#update_plan'
     put 'update_card', :to => 'registrations#update_card'
