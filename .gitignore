@@ -42,6 +42,7 @@ db/*.sqlite3
 /public/system/*
 /spec/tmp/*
 /cache
+/ssl
 /capybara*
 /capybara-*.html
 /gems

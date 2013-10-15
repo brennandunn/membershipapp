@@ -23,6 +23,7 @@ gem 'doorkeeper', '~> 0.7.2'
 gem 'redcarpet'
 gem 'activeadmin', github: "gregbell/active_admin"
 gem 'infusionsoft'
+gem 'rack-ssl'
 
 group :development do
   gem 'sqlite3'
