@@ -63,7 +63,9 @@ class RegistrationsController < Devise::RegistrationsController
     icontact_id = Infusionsoft.contact_add_with_dup_check data, 'Email'
     Infusionsoft.email_optin @user.email, "Freelancers Guild"
     Infusionsoft.contact_add_to_group icontact_id, ClassMappings::DEFAULT_IS_MAPPING
-    Infusionsoft.contact_add_to_group icontact_id, ClassMappings.for_cohort(resource.cohort)
+    if cohort = ClassMappings.for_cohort(resource.cohort)
+      Infusionsoft.contact_add_to_group icontact_id, cohort
+    end
     resource.update_attribute :infusionsoft_id, icontact_id
   end
 

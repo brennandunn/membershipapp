@@ -35,6 +35,8 @@
 		<%= f.password_field :password_confirmation, class: 'form-control', required: true %>
 	</div>
 
+
+	<% unless @free %>
 	<div class="alert alert-success">
 		<strong>You have already paid for your first month of access.</strong> In a month (and from then on), we'll charge the following card...
 	</div>
@@ -54,5 +56,6 @@
   </div>
 
   <%= f.hidden_field :stripe_token %>
+  <% end %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
 <% end %>

@@ -306,6 +306,7 @@ DEPENDENCIES
   launchy
   pg
   quiet_assets
+  rack-ssl
   rails (= 3.2.14)
   rb-fchange
   rb-fsevent

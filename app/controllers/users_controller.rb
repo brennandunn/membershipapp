@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @free = params[:cohort] =~ /free/i
   end
 
   def create
