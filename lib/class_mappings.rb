@@ -7,7 +7,9 @@ class ClassMappings
 		'Boot1013' => 203,
 		'Euro1013' => 205,
 		'Fam1013' => 207,
-		'Cons1013' => 209
+		'Cons1013' => 209,
+		'Agen1013' => 211,
+		'Grow1013' => 213
 	}
 
 	def self.for_cohort(cohort)
