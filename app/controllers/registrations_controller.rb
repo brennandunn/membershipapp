@@ -1,9 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
-
     build_resource(sign_up_params)
     @user = resource
+    @free = @user.cohort =~ /free/i
 
     if resource.save
       if resource.active_for_authentication?
@@ -54,6 +54,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def attach_to_infusionsoft
     return unless ENV['FG']
+    return if Rails.env.development?
     first_name, last_name = resource.name.split(' ')
     data = {
       :Email => resource.email,
