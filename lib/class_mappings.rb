@@ -11,7 +11,8 @@ class ClassMappings
 		'Agen1013' => 211,
 		'Grow1013' => 213,
 		'Emerge1013' => 219,
-		'Grow1113' => 225
+		'Grow1113' => 225,
+		'Emerge1113' => 227
 	}
 
 	def self.for_cohort(cohort)
