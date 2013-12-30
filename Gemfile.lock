@@ -285,6 +285,7 @@ DEPENDENCIES
   anjlab-bootstrap-rails!
   better_errors
   binding_of_caller
+  bourbon
   cancan
   capybara
   coffee-rails (~> 3.2.1)

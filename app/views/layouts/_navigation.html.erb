@@ -1,3 +1,6 @@
+<% if ENV['FG'] %>
+
+<% else %>
 <ul class="nav">
   <% if user_signed_in? %>
     <% unless ENV['FG'] %>
@@ -25,3 +28,4 @@
 
   <% end %>
 </ul>
+<% end %>

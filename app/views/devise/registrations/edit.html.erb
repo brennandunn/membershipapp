@@ -11,6 +11,14 @@
 	  <%= display_base_errors resource %>
 	  <%= f.input :name, :autofocus => true %>
 	  <%= f.input :email, :required => true %>
+	  <%= f.input :location %>
+	  <%= f.input :time_zone %>
+	  <%= f.input :bio, label: 'Who are you?' %>
+	  <%= f.input :skills, label: 'What do you specialize in?' %>
+	  <%= f.input :network_opps, label: 'Who are you looking to connect with?' %>
+	  <%= f.input_field :looking_for_work, inline_label: "I'm current accepting new projects" %>
+	  <%= f.input_field :remote, inline_label: "I work remotely" %>
+	  <%= f.input :rate_info, label: "Any rate or project size requirements?" %>
 	  <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
 	  <%= f.input :password_confirmation, :required => false %>
 	  <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>

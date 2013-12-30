@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014205652) do
+ActiveRecord::Schema.define(:version => 20131230145623) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -124,6 +124,14 @@ ActiveRecord::Schema.define(:version => 20131014205652) do
     t.datetime "joined_at"
     t.string   "cohort"
     t.integer  "infusionsoft_id"
+    t.string   "location"
+    t.string   "time_zone"
+    t.text     "bio"
+    t.text     "skills"
+    t.boolean  "looking_for_work"
+    t.boolean  "remote"
+    t.string   "rate_info"
+    t.text     "network_opps"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

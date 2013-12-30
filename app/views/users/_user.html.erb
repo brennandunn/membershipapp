@@ -1,15 +1,31 @@
-<div id="role-options-<%= user.id %>" class="modal" style="display: none;">
-  <%= simple_form_for user, :url => user_path(user), :html => {:method => :put, :class => 'form-horizontal' } do |f| %>
-    <div class="modal-header">
-      <a class="close" data-dismiss="modal">&#215;</a>
-      <h3>Change Role</h3>
-    </div>
-    <div class="modal-body">
-      <%= f.input :role_ids, :collection => Role.all, :as => :radio_buttons, :label_method => lambda {|t| t.name.titleize}, :label => false, :item_wrapper_class => 'inline', checked: user.role_ids.first %>
-    </div>
-    <div class="modal-footer">
-      <%= f.submit "Change Role", :class => "btn" %>
-      <a class="btn" data-dismiss="modal" href="#">Close</a>
-    </div>
+<li>
+  <div class="name-and-location">
+    <strong><%= mail_to user.email, user.name %></strong> - <em><%= user.location || 'No Location' %> (<%= user.time_zone || 'Unknown Timezone' %>)</em>
+  </div>
+
+  <% if user.bio.present? %>
+  <div class="bio"><strong>About me:</strong> <%= user.bio %></div>
   <% end %>
-</div>
+
+  <% if user.skills.present? %>
+  <div class="skills"><strong>Skills:</strong> <%= user.skills %></div>
+  <% end %>
+
+  <% if user.network_opps.present? %>
+  <div class="looking-for"><strong>I want to network with:</strong> <%= user.network_opps %></div>
+  <% end %>
+
+  <div class="flags">
+    <% if user.looking_for_work %>
+      <span class="green">&#x2713; I'm looking for work!</span>
+    <% else %>
+      <span class="red">&#x2717; I'm not looking for work</span>
+    <% end %>
+
+    <% if user.remote %>
+      <span class="green">&#x2713; I work remotely</span>
+    <% end %>
+
+  </div>
+
+</li>

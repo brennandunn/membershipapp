@@ -1,4 +1,10 @@
 Membershipapp::Application.routes.draw do
+  get "directory/index"
+
+  get "directory/show"
+
+  get "directory/search"
+
   use_doorkeeper
 
   mount StripeEvent::Engine => '/stripe'
@@ -22,6 +28,8 @@ Membershipapp::Application.routes.draw do
     resources :lessons
   end
   resource :resource
+
+  get 'directory' => 'directory#index'
 
   get 'invitation/:cohort', to: 'users#new'
 

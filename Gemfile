@@ -4,6 +4,7 @@ gem 'rails', '3.2.14'
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'bourbon'
 end
 gem 'sass-rails',   '~> 3.2.3'
 gem 'jquery-rails'
@@ -24,6 +25,7 @@ gem 'redcarpet'
 gem 'activeadmin', github: "gregbell/active_admin"
 gem 'infusionsoft'
 gem 'rack-ssl'
+gem 'pg'
 
 group :development do
   gem 'sqlite3'

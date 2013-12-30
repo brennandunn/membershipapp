@@ -1,0 +1,14 @@
+<% @classes.each do |klass| %>
+	<% next unless klass.official_class? %>
+
+
+	<h2><%= klass.name %></h2>
+	<% if current_user.has_role? :admin %>
+	<h4>Added on <%= klass.creation_date %></h4>
+	<%= link_to 'Email class', "mailto:brennan@planscope.io?bcc=#{klass.users.map(&:email).join(',')}" %>
+	<% end %>
+	<ul>
+		<%= render klass.users %>
+	</ul>
+
+<% end %>
