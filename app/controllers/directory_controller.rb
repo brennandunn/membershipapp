@@ -1,5 +1,6 @@
 class DirectoryController < ApplicationController
 
+  before_filter :authenticate_user!
 	before_filter :can_view_directory?
 
   def index
