@@ -23,6 +23,26 @@ class RegistrationsController < Devise::RegistrationsController
 
   end
 
+  def update
+    account_update_params = params[:user]
+
+    # required for settings form to submit when password is left blank
+    if account_update_params[:password].blank?
+      account_update_params.delete("password")
+      account_update_params.delete("password_confirmation")
+    end
+
+    @user = User.find(current_user.id)
+    if @user.update_attributes(account_update_params)
+      set_flash_message :notice, :updated
+      # Sign in the user bypassing validation in case his password changed
+      sign_in @user, :bypass => true
+      redirect_to action: :edit
+    else
+      render "edit"
+    end
+  end
+
   def update_plan
     @user = current_user
     role = Role.find(params[:user][:role_ids]) unless params[:user][:role_ids].nil?

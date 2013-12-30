@@ -36,6 +36,7 @@ class UsersController < ApplicationController
   end
   
   def update
+    raise 'hi'
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
     role = Role.find(params[:user][:role_ids]) unless params[:user][:role_ids].nil?
