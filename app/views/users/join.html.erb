@@ -6,12 +6,42 @@
 		<%= javascript_include_tag "application" %>
 		<script type="text/javascript" src="//use.typekit.net/yiq5pjg.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<title>The Freelancers Guild</title>
 	</head>
 	<body>
+
+		<div class="md-modal md-effect-1" id="modal-1">
+			<div class="md-content">
+				<div>
+					<p>The next semester of the Freelancers Guild starts on <strong>February 17</strong>, and applications open on <strong>February 7 at noon EST</strong>.</p>
+
+					<p>
+						The <u>only way to apply</u> is to fill out the following form. Not only will you be sent the application link on February 7, but I'll also send you one of the lessons from the Guild right now.
+					</p>
+
+					<form accept-charset="UTF-8" action="https://ye150.infusionsoft.com/app/form/process/88fe9dd25f2eb5dc29b36bd1db790158" class="infusion-form" method="POST">
+					    <input name="inf_form_xid" type="hidden" value="88fe9dd25f2eb5dc29b36bd1db790158" />
+					    <input name="inf_form_name" type="hidden" value="Request information" />
+					    <input name="infusionsoft_version" type="hidden" value="1.29.9.21" />
+					        <input class="infusion-field-input-container" id="inf_field_FirstName" name="inf_field_FirstName" type="text" placeholder="Your first name" />
+
+					        <input class="infusion-field-input-container" id="inf_field_Email" name="inf_field_Email" type="email" placeholder="Your email address" />
+					    <div class="infusion-submit">
+					        <input type="submit" value="Let me know when applications open &rarr;" class="button" />
+					    </div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
 		<div class="mast">
 			<div class="wrapper">
-				<div class="logo"><strong>The Freelancers Guild v2.0</strong></div>
-				<div class="announcement">WINTER 2014 kicks off on February 17</div>
+				<div class="logo">
+					<strong>The Freelancers Guild</strong>
+				</div>
+				<div class="announcement">					<a href="/">(Already a member? Login here.)</a>
+</div>
 			</div>
 		</div>
 		<div class="header">
@@ -27,18 +57,40 @@
 				</h2>
 
 				<p>
-					<a href="#">Interested in joining the WINTER 2014 Semester? Click here!</a>
+					<button class="md-trigger" data-modal="modal-1">Interested in joining the WINTER 2014 Semester? Click here!</button>
 				</p>
 
 			</div>
 		</div>
 
+		<div class="md-overlay"></div>
+
+				<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="/js/classie.js"></script>
+		<script src="/js/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/js/';
+		</script>
+		<script src="/js/cssParser.js"></script>
+		<script src="/js/css-filters-polyfill.js"></script>
+
+		<script>
+			function getParameterByName(name) {
+		    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		        results = regex.exec(location.search);
+		    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+
+			$(function(){
+				$('#inf_field_FirstName').val(getParameterByName('FirstName'));
+				$('#inf_field_Email').val(getParameterByName('Email'));
+			});
+		</script>
+
 	</body>
 </html>
-
-<!-- 			<ul>
-				<% User.all.shuffle.each do |user| %>
-					<% next if user.email =~ /msthorn|hansv|bigoh|consumedbycode|laurian|kgelster|makeropspro|genlack|harrisonis|bitsuites/ %>
-					<li><img src="<%= user.avatar_url(90) %>" width="90" onerror="$(this).parent().remove()" title="<%= user.email %>" /></li>
-				<% end %>
-			</ul> -->
