@@ -30,6 +30,7 @@ Membershipapp::Application.routes.draw do
   resource :resource
 
   get 'directory' => 'directory#index'
+  get 'join', to: 'users#join'
 
   get 'invitation/:cohort', to: 'users#new'
 

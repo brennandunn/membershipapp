@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   before_destroy :cancel_subscription
   before_create :set_joined_at
 
+  def avatar_url(size = 60)
+    gravatar_id = Digest::MD5.hexdigest(email.downcase)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=404"
+  end
+
   def can_view?(course_module)
     Time.now - course_module.unlocks_in > joined_at
   end

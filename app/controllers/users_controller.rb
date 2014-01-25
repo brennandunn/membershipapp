@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
   doorkeeper_for :auth
-  before_filter :authenticate_user!, except: [:auth, :new]
+  before_filter :authenticate_user!, except: [:auth, :new, :join]
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
+  end
+
+  def join
+    render layout: false
   end
 
   def auth

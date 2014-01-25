@@ -1,0 +1,113 @@
+@import "bourbon";
+
+$width: 960px;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.mast {
+	background: #000;
+}
+
+.mast .wrapper {
+	display: table;
+	width: $width;
+	margin: 0 auto;
+	color: #ddd;
+	padding: 10px 30px;
+
+	> div {
+		display: table-cell;
+		vertical-align: middle;
+		width: 50%;
+	}
+
+	.announcement {
+		text-align: right;
+	}
+}
+
+.header {
+	background: url(/assets/membergrid.jpg) 50% 50% no-repeat;
+	height: 359px;
+	border-bottom: 4px solid #000;
+	padding-top: 5px;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			float: left;
+		}
+	}
+
+	h1 {
+		color: #fff;
+		font-family: "proxima-nova","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+		font-weight: 700;
+		text-align: center;
+		font-size: 3.5em;
+		text-shadow: 1px 1px 0 #000;
+		width: 70%;
+		margin: 0 auto;
+		position: relative;
+
+		strong {
+			font-weight: 800;
+			font-size: 1.5em;
+			position: relative;
+			top: 0.07em;
+		}
+	}
+
+	.cta-main {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 720px;
+		height: 405px;
+		text-align: center;
+
+		.wrapper {
+			@include box-shadow(0 3px 1px #282203);
+			height: 405px;
+		}
+
+		h2 {
+			margin-top: 15px;
+			font-size: 150%;
+			color: #333;
+
+			span {
+				background: #ffd;
+				padding: 0 5px;
+				@include box-shadow(0 0 2px darken(#ffd, 30%));
+			}
+		}
+
+		a {
+			display: inline-block;
+			font-size: 150%;
+			font-family: "proxima-nova","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-shadow: 1px 1px 0 darken(#30c408, 10%);
+			border-radius: 5px;
+			background: #30c408;
+			border-bottom: 3px solid darken(#30c408, 30%);
+			padding: 10px 20px;
+			color: #fff;
+		}
+
+	}
+}
+
+.content {
+	clear: both;
+	margin: 260px auto 0;
+	width: 720px;
+	text-align: center;
+}
