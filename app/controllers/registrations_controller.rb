@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     @user = resource
-    @free = @user.cohort =~ /free/i
+    @free = @user.cohort =~ /free|winter/i
 
     if resource.save
       if resource.active_for_authentication?

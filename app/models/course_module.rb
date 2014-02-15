@@ -5,6 +5,10 @@ class CourseModule < ActiveRecord::Base
 
   before_save :write_unlocks_in
 
+  def unlocks_in
+    self[:unlocks_in] || Time.now
+  end
+
   def unlocks_in_stamp
   	"#{unlocks_in_number} #{unlocks_in_unit}"
   end

@@ -32,6 +32,9 @@ Membershipapp::Application.routes.draw do
   get 'directory' => 'directory#index'
   get 'join', to: 'users#join'
 
+  get 'course' => 'course#index'
+  get 'course/:lesson' => 'course#show'
+
   get 'invitation/:cohort', to: 'users#new'
 
   root :to => redirect('/users/sign_in')
